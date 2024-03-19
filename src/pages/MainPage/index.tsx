@@ -1,24 +1,37 @@
 import React from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap'; // Assuming you're using React Bootstrap for styling
+import './MainPage.css'; // Ensure you have this CSS file in the same directory
 
 const MainPage = () => {
+  // Dummy data for movies and dramas. Replace these with real data as needed.
+  const movies = ['Movie 1', 'Movie 2', 'Movie 3', 'Movie 4', 'Movie 5', 'Movie 6'];
+  const dramas = ['Drama 1', 'Drama 2', 'Drama 3', 'Drama 4', 'Drama 5', 'Drama 6'];
+
   return (
-    <Container>
-      <Row className="mt-5">
-        <Col md={12} className="text-center">
-          <h1>Welcome to CultureArtDiary</h1>
-          <p>Discover and share your cultural and artistic experiences.</p>
-        </Col>
-      </Row>
-      <Row className="mt-4">
-        <Col md={{ span: 4, offset: 4 }} className="text-center">
-          <Button href="/diarycreation" variant="primary" size="sm">
-            Create Your Diary Entry
-          </Button>
-        </Col>
-      </Row>
-      {/* Additional sections for featured diary entries or upcoming events could be added here */}
-    </Container>
+    <div className="main-container">
+      <div className="header">
+        <h1>Welcome to CultureArtDiary</h1>
+        <p>Discover and share your cultural and artistic experiences.</p>
+        <a href="/diarycreation" className="create-diary-button">Create Your Diary Entry</a>
+      </div>
+
+      <div className="featured-section">
+        <h2>Featured Movies</h2>
+        <div className="entries">
+          {movies.map((movie, index) => (
+            <div className="entry" key={index}>{movie}</div>
+          ))}
+        </div>
+      </div>
+
+      <div className="featured-section">
+        <h2>Featured Dramas</h2>
+        <div className="entries">
+          {dramas.map((drama, index) => (
+            <div className="entry" key={index}>{drama}</div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

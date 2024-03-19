@@ -6,8 +6,20 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand as={Link} to="/">홈페이지</Navbar.Brand> 
-        {/* 홈페이지 이름이나 로고 */}
+      <Link to="/">
+          <Navbar.Brand>
+            <img
+              src={`${process.env.PUBLIC_URL}/img/logo.webp`}               
+              width="40" // Set the width as needed
+              height="40" // Set the height as needed
+              className="d-inline-block align-top" // Aligns the image vertically with adjacent text
+              alt="CultureArtDiary Logo" // Alternative text for the image
+            />
+            
+          </Navbar.Brand>
+        </Link>
+
+
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '200px' }} navbarScroll>
