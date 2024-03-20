@@ -1,57 +1,49 @@
-import React from 'react';
-import './LoginPage.css';
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa"; 
-import { SiNaver } from "react-icons/si"; // Generic Icons as placeholders
-import { RiKakaoTalkFill } from "react-icons/ri";
+import React, { useEffect } from 'react';
+
+// global.d.ts 파일에 추가
+declare namespace Kakao {
+  function init(apiKey: string): void;
+  namespace Auth {
+    function authorize(options: { redirectUri: string }): void;
+  }
+}
 
 
+const KakaoLogin = () => {
+  useEffect(() => {
+    // Kakao SDK 스크립트 로드
+    const script = document.createElement('script');
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-const LoginPage = () => {
-  // Placeholder functions for handling social logins
-  // Replace these with your actual login logic
-  const handleGoogleLogin = () => {
-    console.log('Log in with Google');
-    // Implement Google login logic here
+    script.onload = () => {
+      // Kakao SDK 초기화
+      Kakao.init('3edd23cd46ae62025e6c3b4444931dad');     //저의 개인 카카오 api 키 값입니다. 추후 보안파일로 키 값 가릴 예정, 개인 정보 보호 부탁~~
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const loginWithKakao = () => {
+    console.log("hello");
+    Kakao.Auth.authorize({
+      redirectUri: 'http://localhost:3000/pages/LoginPage/index.tsx'
+    });
   };
-
-  const handleFacebookLogin = () => {
-    console.log('Log in with Facebook');
-    // Implement Facebook login logic here
-  };
-
-  const handleNaverLogin = () => {
-    console.log('Log in with Naver');
-    // Implement Naver login logic here
-  };
-
-  const handleKakaoLogin = () => {
-    console.log('Log in with KakaoTalk');
-    // Implement KakaoTalk login logic here
-  };
-  // You can add similar functions for other social providers
 
   return (
-    <div className="login-container">
-      <div className="social-login-form">
-        <h2>Login</h2>
-        <div className="social-login-buttons">
-          <button onClick={handleGoogleLogin} className="social-button google">
-          <FcGoogle className='icon' /> 구글로 시작하기
-          </button>
-          <button onClick={handleFacebookLogin} className="social-button facebook">
-            <FaFacebook className='icon'/> 페이스북으로 시작하기
-          </button>
-          <button onClick={handleNaverLogin} className="social-button naver">
-            <SiNaver className='icon'/> 네이버로 시작하기
-          </button>
-          <button onClick={handleKakaoLogin} className="social-button kakao">
-            <RiKakaoTalkFill className='icon' /> 카카오톡으로 시작하기
-          </button>
-        </div>
-      </div>
+    <div>
+      <a id="custom-login-btn" onClick={loginWithKakao}>
+        <img
+          src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+          width="222"
+        />
+      </a>
     </div>
   );
 };
 
-export default LoginPage;
+export default KakaoLogin;
