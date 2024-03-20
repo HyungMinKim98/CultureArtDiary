@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import MainPage from './pages/MainPage/index';
-import LoginPage from './pages/LoginPage/index';
+import MainPage from './pages/MainPage/MainPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import Navbar from './components/NavBar';
 import Footer from './components/Footer';
-import UserPage from './pages/UserPage/index';
-import CalendarPage from './pages/CalendarPage';
-import DiaryCreationPage from './pages/DiaryCreationPage';
+import UserPage from './pages/UserPage/UserPage';
+import CalendarPage from './pages/CalendarPage/CalendarPage';
+import DiaryCreationPage from './pages/DiaryCreationPage/DiaryCreationPage';
 
 const Layout = () => {
   return(

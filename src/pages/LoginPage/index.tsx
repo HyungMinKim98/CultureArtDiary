@@ -19,7 +19,8 @@ const KakaoLogin = () => {
 
     script.onload = () => {
       // Kakao SDK 초기화
-      Kakao.init('3edd23cd46ae62025e6c3b4444931dad');     //저의 개인 카카오 api 키 값입니다. 추후 보안파일로 키 값 가릴 예정, 개인 정보 보호 부탁~~
+      Kakao.init('3edd23cd46ae62025e6c3b4444931dad');     
+      //저의 개인 카카오 api 키 값입니다. 추후 보안파일로 키 값 가릴 예정, 개인 정보 보호 부탁~~
     };
 
     return () => {
@@ -30,7 +31,7 @@ const KakaoLogin = () => {
   const loginWithKakao = () => {
     console.log("hello");
     Kakao.Auth.authorize({
-      redirectUri: 'http://localhost:3000/pages/LoginPage/index.tsx'
+      redirectUri: 'http://localhost:3000/pages/LoginPage/LoginPage.tsx'
     });
   };
 
@@ -47,3 +48,4 @@ const KakaoLogin = () => {
 };
 
 export default KakaoLogin;
+
