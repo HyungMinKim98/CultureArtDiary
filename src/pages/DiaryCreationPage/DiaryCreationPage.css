@@ -1,0 +1,100 @@
+.diary-creation-page {
+  margin-bottom: 50px;
+}
+
+.diary-creation-page div,
+.diary-creation-page input[type="text"],
+.diary-creation-page textarea,
+.diary-creation-page select,
+.diary-creation-page .stars-container label {
+  margin-bottom: 20px;
+}
+
+.diary-creation-page h2,
+.diary-creation-page h3,
+.diary-creation-page .checkbox-label,
+.diary-creation-page input[type="checkbox"],
+.diary-creation-page .star-icon,
+.diary-creation-page input[type="text"],
+.diary-creation-page textarea,
+.diary-creation-page select {
+  color: #333;
+  cursor: pointer;
+}
+
+.diary-creation-page form {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.diary-creation-page label {
+  margin-left: 8px;
+}
+
+.diary-creation-page input[type="text"],
+.diary-creation-page textarea,
+.diary-creation-page select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.diary-creation-page textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.diary-creation-page button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.diary-creation-page button[type="submit"]:hover,
+.diary-creation-page .star-icon:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.diary-creation-page .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.diary-creation-page .half-width {
+  width: 48%;
+}
+
+@media (max-width: 768px) {
+  .diary-creation-page .row {
+    flex-direction: column;
+  }
+  .diary-creation-page .half-width {
+    width: 100%;
+  }
+}
+
+.diary-creation-page input:focus,
+.diary-creation-page select:focus,
+.diary-creation-page textarea:focus {
+  outline: 2px solid #007bff;
+}
+
+.diary-creation-page .stars-container {
+  display: flex;
+  justify-content: center;
+}
+
+.diary-creation-page .stars-container label {
+  display: inline-block;
+  margin: 0 2px;
+}
