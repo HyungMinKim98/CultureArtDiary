@@ -50,7 +50,7 @@ const LoginPage = () => {
     // Directly invoke the login function if Kakao SDK is loaded and initialized
     if (window.Kakao && window.Kakao.isInitialized()) {
       window.Kakao.Auth.authorize({
-        redirectUri: 'http://localhost:3000/pages/LoginPage/LoginPage.tsx'
+        redirectUri: 'http://localhost:3000/pages/LoginPage/index.tsx'
       });
     }
   };
