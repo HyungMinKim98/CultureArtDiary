@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import UserPage from './pages/UserPage/UserPage';
 import CalendarPage from './pages/CalendarPage/CalendarPage';
 import DiaryCreationPage from './pages/DiaryCreationPage/DiaryCreationPage';
+import DetailPage from './pages/DetailPage/DetailPage';
 
 const Layout = () => {
   return(
@@ -30,7 +31,7 @@ const App = () => {
           <Route path='diarycreation' element= {<DiaryCreationPage />} />
           <Route path='calendar' element= {<CalendarPage />} />
           <Route path='user' element= {<UserPage />} />
-
+          <Route path='detail/:type/:id' element={<DetailPage />} />
         </Route>
       </Routes>
     </Router>

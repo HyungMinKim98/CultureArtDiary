@@ -1,0 +1,68 @@
+/* src/pages/DetailPage/DetailPage.css */
+.detail-page {
+  color: #fff;
+  background-color: #121212;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.detail-header {
+  text-align: center;
+}
+
+.detail-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 800px;
+  width: 100%;
+}
+
+.detail-poster {
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60%;
+}
+
+.detail-info > p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.detail-info > p > strong {
+  font-weight: bold;
+}
+
+.detail-header h1 {
+  font-size: 32px;
+  margin: 0 0 20px 0;
+}
+
+/* Enhance readability against the dark background */
+.detail-page a {
+  color: #ffb400;
+}
+
+/* Adding some IMDb-like visual cues */
+.detail-info > p > strong {
+  color: #f5c518; /* IMDb yellow */
+}
+
+.detail-page {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}

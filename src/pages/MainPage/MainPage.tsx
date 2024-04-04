@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './MainPage.css'; // 같은 디렉토리에 이 CSS 파일이 있어야 합니다.
-
-interface Media {
-  title: string;
-  poster_path: string;
-}
+import { useNavigate } from 'react-router-dom';
+import { Media } from '../../components/mediaTypes'; // Media 타입을 정의한 파일에서 import
 
 const MainPage = () => {
   const entriesPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [movies, setMovies] = useState<Media[]>([]);
   const [dramas, setDramas] = useState<Media[]>([]);
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -103,7 +101,7 @@ const MainPage = () => {
         <h2>주요 영화</h2>
         <div className="scrollable-entries">
           {movies.map((movie, index) => (
-            <div className="entry" key={index}>
+            <div className="entry" key={index} onClick={() => navigate(`/detail/movie/${movie.id}`)}>
               <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
               <p>{movie.title}</p>
             </div>
@@ -115,7 +113,7 @@ const MainPage = () => {
         <h2>주요 드라마</h2>
         <div className="scrollable-entries">
           {dramas.map((drama, index) => (
-            <div className="entry" key={index}>
+            <div className="entry" key={index} onClick={() => navigate(`/detail/drama/${drama.id}`)}>
               <img src={`https://image.tmdb.org/t/p/w500${drama.poster_path}`} alt={drama.title} />
               <p>{drama.title}</p>
             </div>
