@@ -1,0 +1,73 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.social-login-form {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%; /* Ensure the form takes up available width */
+  max-width: 400px; /* Maximum width of the form */
+}
+
+.social-login-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Align buttons to the center */
+  width: 100%; /* Ensure buttons container takes up the form width */
+}
+
+.social-button {
+  display: block; /* Take up the full line */
+  width: 100%; /* Ensure each button takes up the full container width */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px 0; /* Adjust margin for vertical spacing */
+  box-sizing: border-box; 
+}
+.social-button .icon {
+  margin-right: 8px;
+}
+
+.social-button.google {
+  background-color: #db4437;
+}
+
+.social-button.google:hover {
+  background-color: #a3321a;
+}
+
+.social-button.facebook {
+  background-color: #3b5998;
+}
+
+.social-button.facebook:hover {
+  background-color: #2d4373;
+}
+
+.social-button.naver {
+  background-color: #2DB400;
+}
+
+.social-button.naver:hover {
+  background-color: #1E7E00;
+}
+
+.social-button.kakao {
+  background-color: #FEE500;
+  color: black; /* Change text color for better contrast */
+}
+
+.social-button.kakao:hover {
+  background-color: #ECD400;
+}
