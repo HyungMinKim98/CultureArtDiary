@@ -1,15 +1,32 @@
+// src>pages>LoginPage>LoginPage.tsx
 import React, { useEffect } from 'react';
+import '../../firebase'; // Firebase 초기화 먼저 임포트
 import './LoginPage.css';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa"; 
 import { SiNaver } from "react-icons/si";
 import { RiKakaoTalkFill } from "react-icons/ri";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  const navigate = useNavigate(); // useNavigate 사용
   // Placeholder functions for handling other social logins
   const handleGoogleLogin = () => {
-    console.log('Log in with Google');
-    // Implement Google login logic here
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // Google 로그인 성공
+        console.log(result.user);
+        navigate('/'); // 메인 페이지로 리다이렉션
+        // 성공 후 로직, 예를 들어 메인 페이지로 리다이렉션
+      })
+      .catch((error) => {
+        // 로그인 실패 처리
+        console.error(error);
+      });
   };
 
   const handleFacebookLogin = () => {

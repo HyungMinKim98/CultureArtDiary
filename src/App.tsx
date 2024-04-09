@@ -8,6 +8,7 @@ import UserPage from './pages/UserPage/UserPage';
 import CalendarPage from './pages/CalendarPage/CalendarPage';
 import DiaryCreationPage from './pages/DiaryCreationPage/DiaryCreationPage';
 import DetailPage from './pages/DetailPage/DetailPage';
+import './firebase'; // Firebase 초기화
 
 const Layout = () => {
   return(
