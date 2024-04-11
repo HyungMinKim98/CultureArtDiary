@@ -1,7 +1,7 @@
  // src/pages/DetailPage/DetailPage.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Media } from '../../components/mediaTypes';
+import { Media } from '../../components/Types';
 import './DetailPage.css';
 
 const DetailPage = () => {

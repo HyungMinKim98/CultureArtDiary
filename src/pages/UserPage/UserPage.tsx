@@ -1,51 +1,42 @@
-// UserPage.tsx
+// src > pages> UserPage> UserPage.tsx
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 페이지 이동을 위해 사용
 import './UserPage.css'; // UserPage.css 파일을 import합니다.
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserProfile } from '../../store/userSlice';
+import { RootState } from '../../store/store';
+
 
 const UserPage: React.FC = () => {
-  const entriesPerPage = 5;
-  const [currentPage, setCurrentPage] = useState(1);
   const [profilePic, setProfilePic] = useState<File | null>(null);
+  const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user);
+  const navigate = useNavigate();
 
+  // 프로필 사진 변경 핸들러
   const handleProfilePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      setProfilePic(e.target.files[0]);
+      const profilePhotoUrl = URL.createObjectURL(e.target.files[0]);
+      dispatch(updateUserProfile({ ...user, profilePhoto: profilePhotoUrl }));
     }
   };
 
-  const diaryEntries = [
-    { date: "2024-03-21", title: "A Day at the Museum", author: "User" },
-    { date: "2024-03-15", title: "Exploring Street Art", author: "User" },
-    { date: "2024-03-10", title: "Classical Concert Experience", author: "User" },
-    { date: "2024-03-07", title: "A Day at the Museum", author: "User" },
-    { date: "2024-03-03", title: "Exploring Street Art", author: "User" },
-    { date: "2024-03-01", title: "Classical Concert Experience", author: "User" },
-    // Add more diary entries
-  ];
-
-  const pageCount = Math.ceil(diaryEntries.length / entriesPerPage);
-
-  const currentEntries = diaryEntries.slice(
-    (currentPage - 1) * entriesPerPage,
-    currentPage * entriesPerPage
-  );
-
-  // Handler to change page
-  const setPage = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
+   // 수정 페이지로 이동하는 함수
+   const handleEditProfile = () => {
+    navigate('/edit-profile');
   };
 
   return (
-    <div className="main-container">
-      <div className="header">
-        <h1>Welcome to Your Profile</h1>
-        <p>View and manage your diary entries here.</p>
+    <div className="user-container">
+      <div className="user-header">
+        <h1>{user.nickname}님의 프로필</h1>
+        <p>당신의 관심사와 프로필을 관리하세요.</p>
       </div>
 
       <div className="profile-section">
+      <h2 className="profile-title">프로필 정보</h2>
         <div className="profile-info">
-          <h2>Your Profile</h2>
           <div className="profile-pic-container">
             {profilePic ? (
               <img src={URL.createObjectURL(profilePic)} alt="Profile" className="profile-pic" />
@@ -55,41 +46,18 @@ const UserPage: React.FC = () => {
               </div>
             )}
           </div>
-          <input type="file" accept="image/*" onChange={handleProfilePicChange} />
+          <div className="user-info">
+            <p><strong>이름:</strong> {user.nickname}</p>
+            <p><strong>장르:</strong> {user.genre.join(', ')}</p>
+       
+            <div className="file-input-container">
+              <input type="file" accept="image/*" onChange={handleProfilePicChange} />
+            </div>
+            <button onClick={handleEditProfile} className="edit-button">프로필 수정</button>
         </div>
-      </div>
-
-      <div className="diary-entries-section">
-        <h2>Your Diary Entries</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Title</th>
-              <th>Author</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentEntries.map((entry, index) => (
-              <tr key={index}>
-                <td>{entry.date}</td>
-                <td>{entry.title}</td>
-                <td>{entry.author}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="pagination">
-          {Array.from({ length: pageCount }, (_, i) => i + 1).map((number) => (
-            <button key={number} onClick={() => setPage(number)} className={currentPage === number ? 'active' : ''}>
-              {number}
-            </button>
-          ))}
         </div>
-        <a href="/diarycreation" className="create-diary-button">Create Diary Entry</a>
       </div>
     </div>
   );
 };
-
 export default UserPage;

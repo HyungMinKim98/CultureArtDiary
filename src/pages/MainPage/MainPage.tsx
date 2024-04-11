@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MainPage.css'; // 같은 디렉토리에 이 CSS 파일이 있어야 합니다.
 import { useNavigate } from 'react-router-dom';
-import { Media } from '../../components/mediaTypes'; // Media 타입을 정의한 파일에서 import
+import { Media } from '../../components/Types'; // Media 타입을 정의한 파일에서 import
 
 const MainPage = () => {
   const entriesPerPage = 5;

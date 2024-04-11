@@ -9,6 +9,7 @@ import CalendarPage from './pages/CalendarPage/CalendarPage';
 import DiaryCreationPage from './pages/DiaryCreationPage/DiaryCreationPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import './firebase'; // Firebase 초기화
+import EditProfilePage from './pages/UserPage/EditProfilePage';
 
 const Layout = () => {
   return(
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='diarycreation' element= {<DiaryCreationPage />} />
           <Route path='calendar' element= {<CalendarPage />} />
           <Route path='user' element= {<UserPage />} />
+          <Route path='edit-profile' element= {<EditProfilePage />} />
           <Route path='detail/:type/:id' element={<DetailPage />} />
         </Route>
       </Routes>
