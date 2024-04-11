@@ -6,10 +6,10 @@ import { User, Gender, Genre } from '../components/Types'; // Gender와 Genre �
 // 초기 상태의 타입을 User 인터페이스로 설정합니다.
 const initialState: User = {
   id: '0',
-  nickname: '',
+  nickname: '사용자',
   profilePhoto: '',
   genre: [], // Genre[] 타입으로 초기화합니다.
-  gender: Gender.Other, // Gender 타입으로 초기화합니다.
+  gender: Gender.Male, // Gender 타입으로 초기화합니다.
   birthYear: '',
 };
 

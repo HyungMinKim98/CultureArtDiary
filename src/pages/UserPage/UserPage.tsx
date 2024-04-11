@@ -48,6 +48,8 @@ const UserPage: React.FC = () => {
           </div>
           <div className="user-info">
             <p><strong>이름:</strong> {user.nickname}</p>
+            <p><strong>성별:</strong> {user.gender}</p>
+            <p><strong>생년:</strong> {user.birthYear}</p>
             <p><strong>장르:</strong> {user.genre.join(', ')}</p>
        
             <div className="file-input-container">
