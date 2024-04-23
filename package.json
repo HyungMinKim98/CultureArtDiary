@@ -13,6 +13,8 @@
     "@types/react-dom": "^18.2.20",
     "bootstrap": "^5.3.3",
     "firebase": "^10.10.0",
+    "gapi-script": "^1.2.0",
+    "google-api-javascript-client": "^0.1.0",
     "nodemon": "^3.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
@@ -53,6 +55,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/gapi": "^0.0.47",
+    "@types/gapi.auth2": "^0.0.60"
   }
 }
